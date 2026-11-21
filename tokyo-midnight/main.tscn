@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbmxrx3ioehux" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bg2b0v48y8eey" path="res://car.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://wj8gtesstse" path="res://camera.gd" id="3_h2yge"]
+[ext_resource type="ArrayMesh" uid="uid://dvou7smxpxlmh" path="res://car/RX7/fc_rx7-lights_up.obj" id="4_1bvp3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7pmto"]
 size = Vector2(100, 100)
@@ -10,11 +11,8 @@ size = Vector2(100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7pmto"]
 size = Vector3(100, 0.2, 100)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qaqkl"]
-size = Vector3(2, 0.8, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qaqkl"]
-size = Vector3(2, 0.8, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0af1s"]
+size = Vector3(2.7984009, 2.0160522, 6.949341)
 
 [node name="Node3D" type="Node3D" unique_id=553994955]
 script = ExtResource("1_ig7tw")
@@ -32,15 +30,17 @@ shape = SubResource("BoxShape3D_7pmto")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("2_0xm2m")
 
-[node name="CarBody" type="MeshInstance3D" parent="car" unique_id=1511567833]
-mesh = SubResource("BoxMesh_qaqkl")
-
-[node name="CarCollision" type="CollisionShape3D" parent="car" unique_id=337095792]
-shape = SubResource("BoxShape3D_qaqkl")
-
 [node name="Camera3D" type="Camera3D" parent="car" unique_id=1461992364]
 transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 4.5, 10)
 script = ExtResource("3_h2yge")
 
+[node name="RX7Model" type="MeshInstance3D" parent="car" unique_id=2074050280]
+transform = Transform3D(-0.3, 0, 2.6226834e-08, 0, 0.3, 0, -2.6226834e-08, 0, -0.3, 0, -0.4169386, 0)
+mesh = ExtResource("4_1bvp3")
+
+[node name="CarCollision" type="CollisionShape3D" parent="car" unique_id=1532859671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5143738, -0.15130615)
+shape = SubResource("BoxShape3D_0af1s")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1704600235]
-transform = Transform3D(0.48223022, -0.34011108, 0.8073279, -0.8073279, -0.5303152, 0.25881904, 0.3401111, -0.7765888, -0.5303152, -45, 10, 0)
+transform = Transform3D(0.48223025, -0.3401111, 0.807328, -0.807328, -0.5303153, 0.25881904, 0.34011114, -0.77658886, -0.5303153, -45, 9.820299, 0)
